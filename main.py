@@ -77,8 +77,6 @@ def otwieranie_angielski():
 #############################################
 
 
-
-
 def otwieranie_polski():
     def slowko_pol_ang():
         global polski
@@ -139,24 +137,27 @@ def otwieranie_polski():
 
     okno_polski.mainloop()
 
+def ustawienia_okna():
+    okno1.title('Wybierz tryb gry')
+    okno1.geometry("600x200")
+
+    okno1.update_idletasks()
+    szerokosc_okna = 600
+    wysokosc_okna = 200
+    szerokosc_ekranu = okno1.winfo_screenwidth()
+    wysokosc_ekranu = okno1.winfo_screenheight()
+
+    # Obliczenie pozycji
+    x = (szerokosc_ekranu - szerokosc_okna) // 2
+    y = (wysokosc_ekranu - wysokosc_okna) // 2
+    okno1.geometry(f"{szerokosc_okna}x{wysokosc_okna}+{x}+{y}")  # Ustawienie pozycji na środku
+
+    # Ustawienie okna na wierzchu
+    okno1.attributes("-topmost", True)
 
 okno1=Tk()
-okno1.title('Wybierz tryb gry')
-okno1.geometry("600x200")
+ustawienia_okna()
 
-okno1.update_idletasks()
-szerokosc_okna = 600
-wysokosc_okna = 200
-szerokosc_ekranu = okno1.winfo_screenwidth()
-wysokosc_ekranu = okno1.winfo_screenheight()
-
-# Obliczenie pozycji
-x = (szerokosc_ekranu - szerokosc_okna) // 2
-y = (wysokosc_ekranu - wysokosc_okna) // 2
-okno1.geometry(f"{szerokosc_okna}x{wysokosc_okna}+{x}+{y}")  # Ustawienie pozycji na środku
-
-# Ustawienie okna na wierzchu
-okno1.attributes("-topmost", True)
 
 napis=Label(okno1,text='Wybierz tryb gry:', font=('Comic Sans MS', 20), fg='black')
 napis.pack()
