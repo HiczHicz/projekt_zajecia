@@ -34,13 +34,13 @@ def otwieranie_angielski():
             wynik.configure(text='nie ok! Poprawna odpowiedź to:'+ang_pol[angielski])
             slowko_ang_pol()
             wpisz.delete(0, END)
-    okno1.destroy()
+    #okno1.destroy()
     okno_angielski=Tk()
-    okno_angielski.geometry("600x300")
+    okno_angielski.geometry("600x200")
 
     okno_angielski.update_idletasks()
     szerokosc_okna = 600
-    wysokosc_okna = 300
+    wysokosc_okna = 200
     szerokosc_ekranu = okno_angielski.winfo_screenwidth()
     wysokosc_ekranu = okno_angielski.winfo_screenheight()
 
@@ -66,8 +66,8 @@ def otwieranie_angielski():
     ok=Button(text='ok', command=sprawdz)
     ok.pack()
 
-    # zmien_tryb=Button(text='zmien tryb', command=otwieranie_polski)
-    # zmien_tryb.pack()
+    zmien_tryb=Button(text='zmien tryb', command=lambda:[okno_angielski.destroy(), otwieranie_polski()])
+    zmien_tryb.pack()
 
     zakoncz=Button(text='zakoncz', command=okno_angielski.destroy)
     zakoncz.pack()
@@ -97,7 +97,7 @@ def otwieranie_polski():
             wynik.configure(text='nie ok! Poprawna odpowiedź to:' + pol_ang[polski])
             slowko_pol_ang()
             wpisz.delete(0, END)
-    okno1.destroy()
+    #okno1.destroy()
     okno_polski=Tk()
 
     okno_polski.geometry("600x200")
@@ -116,7 +116,7 @@ def otwieranie_polski():
     # Ustawienie okna na wierzchu
     okno_polski.attributes("-topmost", True)
 
-    okno_polski.title('Tłumaczenie angielskich słowek na polski')
+    okno_polski.title('Tłumaczenie polskich słowek na angielski')
     slowko = Label(okno_polski, text='', font=('Comic Sans MS', 20), fg='black')
     slowko.pack()
     wynik=Label(okno_polski, text='')
@@ -129,6 +129,9 @@ def otwieranie_polski():
 
     ok=Button(text='ok', command=sprawdz)
     ok.pack()
+
+    zmien_tryb=Button(text='zmien tryb', command=lambda:[okno_polski.destroy(), otwieranie_angielski()])
+    zmien_tryb.pack()
 
     zakoncz=Button(text='zakoncz', command=okno_polski.destroy)
     zakoncz.pack()
@@ -159,11 +162,11 @@ napis=Label(okno1,text='Wybierz tryb gry:', font=('Comic Sans MS', 20), fg='blac
 napis.pack()
 
 
-angpol=Button(okno1,text='Angielski -> Polski',font=('Comic Sans MS', 12), fg = "black", width=25, command=otwieranie_angielski)
+angpol=Button(okno1,text='Angielski -> Polski',font=('Comic Sans MS', 12), fg = "black", width=25, command=lambda:[okno1.destroy(), otwieranie_angielski()])
 angpol.pack(pady=20)
 
 
-polang=Button(okno1,text='Polski -> Angielski', font=('Comic Sans MS', 12), fg='black', width=25, command=otwieranie_polski)
+polang=Button(okno1,text='Polski -> Angielski', font=('Comic Sans MS', 12), fg='black', width=25, command=lambda:[okno1.destroy(), otwieranie_polski()])
 polang.pack(pady=20)
 
 

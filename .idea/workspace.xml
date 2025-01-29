@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="235e2da9-8d9c-46a7-ac57-1f96b49bc8f7" name="Changes" comment="wersja podstawowa dzialajaca">
-      <change afterPath="$PROJECT_DIR$/Polish-and-UK-flag.png" afterDir="false" />
+    <list default="true" id="235e2da9-8d9c-46a7-ac57-1f96b49bc8f7" name="Changes" comment="okienko na srodku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -114,14 +113,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738159564696</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="okienko na srodku">
+      <option name="closed" value="true" />
+      <created>1738160437078</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1738160437078</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="pol_ang" />
     <MESSAGE value="wersja podstawowa dzialajaca" />
-    <option name="LAST_COMMIT_MESSAGE" value="wersja podstawowa dzialajaca" />
+    <MESSAGE value="okienko na srodku" />
+    <option name="LAST_COMMIT_MESSAGE" value="okienko na srodku" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
