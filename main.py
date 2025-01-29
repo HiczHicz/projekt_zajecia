@@ -16,18 +16,43 @@ ang_pol = {}
 for i in l:
     ang_pol[i[0]] = i[1]
 
-
-
-# # angielski-polski
-# angielski = random.choice(list(d.keys()))
-
 def otwieranie_angielski():
+    def slowko_ang_pol():
+        global angielski
+        angielski = random.choice(list(ang_pol.keys()))
+        slowko.configure(text=angielski)
+        wpisz.delete(0,END)
+    def sprawdz():
+        odpowiedz=wpisz.get()
+        if odpowiedz.lower() == ang_pol[angielski].lower():
+            wynik.configure(text='Dobrze!')
+            del ang_pol[angielski]
+            wpisz.delete(0, END)
+            slowko.configure(text=angielski)
+            slowko_ang_pol()
+        else:
+            wynik.configure(text='nie ok! Poprawna odpowiedź to:'+ang_pol[angielski])
+            slowko_ang_pol()
+            wpisz.delete(0, END)
     okno1.destroy()
     okno_angielski=Tk()
+    okno_angielski.geometry("600x300")
+
+
 
     okno_angielski.title('Tłumaczenie angielskich słowek na polski')
     slowko = Label(okno_angielski, text='', font=('Comic Sans MS', 20), fg='black')
     slowko.pack()
+    wynik=Label(okno_angielski, text='')
+    wynik.pack()
+    wpisz=Entry()
+    wpisz.pack()
+
+    losuj=Button(text='losuj', command=slowko_ang_pol)
+    losuj.pack()
+
+    ok=Button(text='ok', command=sprawdz)
+    ok.pack()
 
     okno_angielski.mainloop()
 
@@ -47,7 +72,9 @@ def otwieranie_polski():
             slowko.configure(text=polski)
             slowko_pol_ang()
         else:
-            wynik.configure(text='źle!')
+            wynik.configure(text='nie ok! Poprawna odpowiedź to:' + pol_ang[polski])
+            slowko_pol_ang()
+            wpisz.delete(0, END)
     okno1.destroy()
     okno_polski=Tk()
     okno_polski.title('Tłumaczenie angielskich słowek na polski')
