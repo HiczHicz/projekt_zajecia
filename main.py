@@ -38,7 +38,19 @@ def otwieranie_angielski():
     okno_angielski=Tk()
     okno_angielski.geometry("600x300")
 
+    okno_angielski.update_idletasks()
+    szerokosc_okna = 600
+    wysokosc_okna = 300
+    szerokosc_ekranu = okno_angielski.winfo_screenwidth()
+    wysokosc_ekranu = okno_angielski.winfo_screenheight()
 
+    # Obliczenie pozycji
+    x = (szerokosc_ekranu - szerokosc_okna) // 2
+    y = (wysokosc_ekranu - wysokosc_okna) // 2
+    okno_angielski.geometry(f"{szerokosc_okna}x{wysokosc_okna}+{x}+{y}")  # Ustawienie pozycji na środku
+
+    # Ustawienie okna na wierzchu
+    okno_angielski.attributes("-topmost", True)
 
     okno_angielski.title('Tłumaczenie angielskich słowek na polski')
     slowko = Label(okno_angielski, text='', font=('Comic Sans MS', 20), fg='black')
@@ -54,7 +66,17 @@ def otwieranie_angielski():
     ok=Button(text='ok', command=sprawdz)
     ok.pack()
 
+    # zmien_tryb=Button(text='zmien tryb', command=otwieranie_polski)
+    # zmien_tryb.pack()
+
+    zakoncz=Button(text='zakoncz', command=okno_angielski.destroy)
+    zakoncz.pack()
+
     okno_angielski.mainloop()
+
+#############################################
+
+
 
 
 def otwieranie_polski():
@@ -77,6 +99,23 @@ def otwieranie_polski():
             wpisz.delete(0, END)
     okno1.destroy()
     okno_polski=Tk()
+
+    okno_polski.geometry("600x200")
+
+    okno_polski.update_idletasks()
+    szerokosc_okna = 600
+    wysokosc_okna = 200
+    szerokosc_ekranu = okno_polski.winfo_screenwidth()
+    wysokosc_ekranu = okno_polski.winfo_screenheight()
+
+    # Obliczenie pozycji
+    x = (szerokosc_ekranu - szerokosc_okna) // 2
+    y = (wysokosc_ekranu - wysokosc_okna) // 2
+    okno_polski.geometry(f"{szerokosc_okna}x{wysokosc_okna}+{x}+{y}")  # Ustawienie pozycji na środku
+
+    # Ustawienie okna na wierzchu
+    okno_polski.attributes("-topmost", True)
+
     okno_polski.title('Tłumaczenie angielskich słowek na polski')
     slowko = Label(okno_polski, text='', font=('Comic Sans MS', 20), fg='black')
     slowko.pack()
@@ -91,12 +130,29 @@ def otwieranie_polski():
     ok=Button(text='ok', command=sprawdz)
     ok.pack()
 
+    zakoncz=Button(text='zakoncz', command=okno_polski.destroy)
+    zakoncz.pack()
+
+
     okno_polski.mainloop()
 
 
 okno1=Tk()
 okno1.title('Wybierz tryb gry')
-okno1.geometry('750x250')
+okno1.geometry("600x200")
+
+okno1.update_idletasks()
+szerokosc_okna = 600
+wysokosc_okna = 200
+szerokosc_ekranu = okno1.winfo_screenwidth()
+wysokosc_ekranu = okno1.winfo_screenheight()
+
+# Obliczenie pozycji
+x = (szerokosc_ekranu - szerokosc_okna) // 2
+y = (wysokosc_ekranu - wysokosc_okna) // 2
+okno1.geometry(f"{szerokosc_okna}x{wysokosc_okna}+{x}+{y}")  # Ustawienie pozycji na środku
+
+# Ustawienie okna na wierzchu
 okno1.attributes("-topmost", True)
 
 napis=Label(okno1,text='Wybierz tryb gry:', font=('Comic Sans MS', 20), fg='black')
