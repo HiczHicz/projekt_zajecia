@@ -17,12 +17,12 @@ for i in l:
     ang_pol[i[0]] = i[1]
 
 def otwieranie_angielski():
-    def slowko_ang_pol():
+    def slowko_ang_pol(event=None):
         global angielski
         angielski = random.choice(list(ang_pol.keys()))
         slowko.configure(text=angielski)
         wpisz.delete(0,END)
-    def sprawdz():
+    def sprawdz(event=None):
         odpowiedz=wpisz.get()
         if odpowiedz.lower() == ang_pol[angielski].lower():
             wynik.configure(text='Dobrze!')
@@ -31,16 +31,18 @@ def otwieranie_angielski():
             slowko.configure(text=angielski)
             slowko_ang_pol()
         else:
-            wynik.configure(text='nie ok! Poprawna odpowiedź to:'+ang_pol[angielski])
+            wynik.configure(text='nie ok! '+ angielski+ ' to: '+ang_pol[angielski])
             slowko_ang_pol()
             wpisz.delete(0, END)
     #okno1.destroy()
     okno_angielski=Tk()
-    okno_angielski.geometry("600x200")
+    okno_angielski.geometry("600x300")
+    okno_angielski.bind('<Return>', sprawdz)
+    okno_angielski.bind('1', slowko_ang_pol)
 
     okno_angielski.update_idletasks()
     szerokosc_okna = 600
-    wysokosc_okna = 200
+    wysokosc_okna = 300
     szerokosc_ekranu = okno_angielski.winfo_screenwidth()
     wysokosc_ekranu = okno_angielski.winfo_screenheight()
 
@@ -92,7 +94,7 @@ def otwieranie_polski():
             slowko.configure(text=polski)
             slowko_pol_ang()
         else:
-            wynik.configure(text='nie ok! Poprawna odpowiedź to:' + pol_ang[polski])
+            wynik.configure(text='nie ok!'+ polski + ' to: '+ pol_ang[polski])
             slowko_pol_ang()
             wpisz.delete(0, END)
     #okno1.destroy()
@@ -102,7 +104,7 @@ def otwieranie_polski():
 
     okno_polski.update_idletasks()
     szerokosc_okna = 600
-    wysokosc_okna = 200
+    wysokosc_okna = 300
     szerokosc_ekranu = okno_polski.winfo_screenwidth()
     wysokosc_ekranu = okno_polski.winfo_screenheight()
 
@@ -143,7 +145,7 @@ def ustawienia_okna():
 
     okno1.update_idletasks()
     szerokosc_okna = 600
-    wysokosc_okna = 200
+    wysokosc_okna = 300
     szerokosc_ekranu = okno1.winfo_screenwidth()
     wysokosc_ekranu = okno1.winfo_screenheight()
 
